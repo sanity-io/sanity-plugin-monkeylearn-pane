@@ -1,7 +1,7 @@
 {
   "name": "sanity-plugin-monkeylearn-pane",
   "version": "1.0.0",
-  "description": "",
+  "description": "Send the contents of Portable Text to MonkeyLearn's API to Extract insights",
   "main": "lib/MonkeyLearnPane.js",
   "scripts": {
     "build": "sanipack build",
