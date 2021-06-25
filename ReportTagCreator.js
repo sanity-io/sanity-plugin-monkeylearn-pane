@@ -4,14 +4,14 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {Flex, Box, Card, Text, Inline, Button} from '@sanity/ui'
 import sanityClient from 'part:@sanity/base/client'
-import {FiTag} from 'react-icons/fi'
+import {FiBookmark} from 'react-icons/fi'
 import {capitalCase} from 'change-case'
 import {useDocumentOperation} from '@sanity/react-hooks'
 import {nanoid} from 'nanoid'
 
 const client = sanityClient.withConfig({apiVersion: `2021-05-19`})
 
-export default function ReportReference({docId, item}) {
+export default function ReportReference({docId, report}) {
   const [tag, setTag] = useState()
   const {patch} = useDocumentOperation(docId, 'article')
 
@@ -19,8 +19,8 @@ export default function ReportReference({docId, item}) {
     async function getTag() {
       const query = `*[_type == "tag" && title == $title && category == $category][0]`
       const queryParams = {
-        title: item.parsed_value,
-        category: capitalCase(item.tag_name),
+        title: report.parsed_value,
+        category: capitalCase(report.tag_name),
       }
       const data = await client.fetch(query, queryParams)
 
@@ -30,7 +30,7 @@ export default function ReportReference({docId, item}) {
       } else {
         const newTag = {
           _type: 'tag',
-          title: item.parsed_value,
+          title: report.parsed_value,
           category: queryParams.category,
         }
 
@@ -61,14 +61,14 @@ export default function ReportReference({docId, item}) {
     <Card tone="default" paddingY={2} borderBottom={1} radius={0}>
       <Flex align="center">
         <Button tone="positive" disabled={Boolean(!tag?._id)} onClick={() => addTag()}>
-          <Inline space={1} align="center" paddingY={2} paddingX={3}>
-            <FiTag />
+          <Inline space={1} align="center">
+            <FiBookmark />
             <Text size={1}>{tag?._id ? `Tag` : `Loading...`}</Text>
           </Inline>
         </Button>
         <Box paddingX={2}>
           <Text marginLeft={2} size={2}>
-            {item?.parsed_value}
+            {report?.parsed_value}
           </Text>
         </Box>
       </Flex>
@@ -78,7 +78,7 @@ export default function ReportReference({docId, item}) {
 
 ReportReference.propTypes = {
   docId: PropTypes.string.isRequired,
-  item: PropTypes.shape({
+  report: PropTypes.shape({
     parsed_value: PropTypes.string,
     tag_name: PropTypes.string,
   }).isRequired,

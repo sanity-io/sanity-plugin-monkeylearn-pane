@@ -57,7 +57,6 @@ function MonkeyLearnPane({document: sanityDocument, options}) {
                 <Inline space={2}>
                   <Button
                     fontSize={2}
-                    padding={3}
                     tone="positive"
                     mode="ghost"
                     onClick={() =>
@@ -67,7 +66,7 @@ function MonkeyLearnPane({document: sanityDocument, options}) {
                       })
                     }
                   >
-                    <Inline space={2} align="center" padding={2}>
+                    <Inline space={2} align="center">
                       {activeExtractors[ex.id] ? <FiX /> : <FiExternalLink />}
                       <Text size={2}>{activeExtractors[ex.id] ? `Close` : `Extract`}</Text>
                     </Inline>
