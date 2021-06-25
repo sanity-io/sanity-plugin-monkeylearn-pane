@@ -4,6 +4,8 @@ Send the contents of [Portable Text](https://www.sanity.io/docs/presenting-block
 
 Drop in your own Component (like in this example below) to feed that data back into your content.
 
+![Generating tags and patching document with machine learning](https://user-images.githubusercontent.com/9684022/123431817-9af3b780-d5c1-11eb-993f-db8f1c8e24d5.gif)
+
 ## Installation
 
 ```
