@@ -6,6 +6,7 @@
   "scripts": {
     "build": "sanipack build",
     "watch": "sanipack build --watch",
+    "test": "",
     "prepublishOnly": "sanipack build && sanipack verify"
   },
   "repository": {
@@ -21,7 +22,8 @@
   "dependencies": {
     "dlv": "^1.1.3",
     "monkeylearn": "^3.4.0",
-    "prop-types": "15.7.2"
+    "prop-types": "15.7.2",
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "7.28.0",
