@@ -4,8 +4,6 @@ Send the contents of [Portable Text](https://www.sanity.io/docs/presenting-block
 
 Drop in your own Component (like in this example below) to feed that data back into your content.
 
-![Tagging content with machine learning](https://user-images.githubusercontent.com/9684022/123423543-94604280-d5b7-11eb-9746-20beeb90bf27.gif)
-
 ## Installation
 
 ```
@@ -40,7 +38,7 @@ The `.options()` configuration works as follows:
 
 ## Customising the output
 
-The example shown above is included in this repo, see ReportTagCreator.js – this Component takes the report, generates a `tag` document if one does not already exists, and can send a `patch` back to the currently edited document in an `array` of `references` named `tags`.
+The example shown above is included in this repo, see [ReportTagCreator.js](https://github.com/sanity-io/sanity-plugin-monkeylearn-pane/blob/main/ReportTagCreator.js) – this Component takes the report, generates a `tag` document if one does not already exists, and can send a `patch` back to the currently edited document in an `array` of `references` named `tags`.
 
 ## License
 
