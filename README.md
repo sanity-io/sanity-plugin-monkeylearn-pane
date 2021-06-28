@@ -26,9 +26,10 @@ import MonkeyLearnPane from 'sanity-plugin-monkeylearn-pane'
 S.view
   .component(MonkeyLearnPane)
   .options({
-    apiKey: 'xxx',
     extractors: [`ex_vqBQ7V9B`],
     field: 'content',
+    // Optional but recommended!
+    // Use your own Component to display/interact with extractions
     displayComponent: <Report />,
   })
   .title('Analysis')
