@@ -18,9 +18,9 @@ import {FiExternalLink, FiX} from 'react-icons/fi'
 import toPlainText from './helpers/toPlainText'
 import GetExtraction from './GetExtraction'
 
-function MonkeyLearnPane({document: sanityDocument, options}) {
-  const {extractors, apiKey, field, displayComponent} = options
-  const ml = useMemo(() => new MonkeyLearn(apiKey), [])
+function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
+  const {extractors, field, displayComponent} = options
+  const ml = useMemo(() => new MonkeyLearn(mlApiKey), [])
 
   const {displayed} = sanityDocument
   const {_id} = displayed
@@ -44,7 +44,7 @@ function MonkeyLearnPane({document: sanityDocument, options}) {
     }
   }, [ml])
 
-  if (!apiKey) return `No MonkeyLearn API Key Provided`
+  if (!mlApiKey) return `No MonkeyLearn API Key Provided`
 
   return (
     <ThemeProvider theme={studioTheme}>
@@ -104,11 +104,11 @@ MonkeyLearnPane.propTypes = {
     }),
   }),
   options: PropTypes.shape({
-    apiKey: PropTypes.string.isRequired,
     extractors: PropTypes.arrayOf(PropTypes.string),
     field: PropTypes.string.isRequired,
     displayComponent: PropTypes.func,
   }),
+  mlApiKey: PropTypes.string.isRequired,
 }
 
 export default MonkeyLearnPane

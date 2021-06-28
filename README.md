@@ -1,8 +1,11 @@
 # sanity-plugin-monkeylearn-pane
 
-Send the contents of [Portable Text](https://www.sanity.io/docs/presenting-block-text) to [MonkeyLearn](https://monkeylearn.com/)'s API to Extract insights.
+Send the contents of [Portable Text](https://www.sanity.io/docs/presenting-block-text) to [MonkeyLearn](https://monkeylearn.com/)'s API to Extract insights with the power of Machine Learning!
 
-Drop in your own Component (like in this example below) to feed that data back into your content.
+## Notes
+
+1. You will need a [MonkeyLearn account](https://monkeylearn.com/) (free!) in order to use this plugin
+2. By default the plugin will only display extraction results. To perform the below interactions back to your source Document, you will need to drop in your own Component in the Pane `options`.
 
 ![Generating tags and patching document with machine learning](https://user-images.githubusercontent.com/9684022/123431817-9af3b780-d5c1-11eb-993f-db8f1c8e24d5.gif)
 
@@ -33,7 +36,6 @@ S.view
 
 The `.options()` configuration works as follows:
 
-- `apiKey` (string, required) An API Key from [MonkeyLearn](https://monkeylearn.com/). **Note:** This will bundle your key into the Sanity Studio Client. Currently only safe to use on a Private Repository
 - `extractors` ([string], required) The ID's of the [Text Extractors](https://monkeylearn.com/text-extractors/) you want to produce reports for.
 - `field` (string, required) A [dot-notated string](https://www.npmjs.com/package/dlv) from the document object to a field containing the Portable Text array.
 - `displayComponent` (React Component, optional) A custom Component for handling the report from each text extraction. You will need to BYO a Component that will accept the Document ID and Report as props, so that it can do something fancy like generating `tag` documents and sending a `patch` to the currently edited document.

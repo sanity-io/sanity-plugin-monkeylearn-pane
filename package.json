@@ -1,8 +1,8 @@
 {
   "name": "sanity-plugin-monkeylearn-pane",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Send the contents of Portable Text to MonkeyLearn's API to Extract insights",
-  "main": "lib/MonkeyLearnPane.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "sanipack build",
     "watch": "sanipack build --watch",
@@ -25,7 +25,8 @@
     "dlv": "^1.1.3",
     "monkeylearn": "^3.4.0",
     "prop-types": "15.7.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "sanity-secrets": "^0.0.5"
   },
   "devDependencies": {
     "eslint": "7.28.0",
@@ -36,7 +37,8 @@
     "sanipack": "2.0.1"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "react": "^17.0.0",
+    "styled-components": "^5.3.0"
   },
   "prettier": {
     "semi": false,
