@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSecrets, SettingsView} from 'sanity-secrets'
-import {ThemeProvider, studioTheme, Spinner, Flex} from '@sanity/ui'
+import {ThemeProvider, Spinner, Flex} from '@sanity/ui'
 
 import MonkeyLearnPane from './MonkeyLearnPane'
 
@@ -22,7 +22,7 @@ export default function Pane(props) {
 
   if (loading) {
     return (
-      <ThemeProvider theme={studioTheme}>
+      <ThemeProvider>
         <Flex padding={4} justify="center" align="center">
           <Spinner muted />
         </Flex>
@@ -32,7 +32,7 @@ export default function Pane(props) {
 
   if (showSettings) {
     return (
-      <ThemeProvider theme={studioTheme}>
+      <ThemeProvider>
         <SettingsView
           namespace={namespace}
           keys={pluginConfigKeys}
