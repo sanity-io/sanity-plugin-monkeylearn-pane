@@ -56,7 +56,7 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
             .filter((ex) => extractors?.length > 0 && extractors.includes(ex.id))
             .map((ex) => (
               <Card key={ex.id}>
-                <Flex align="center" space={2}>
+                <Flex align="center" gap={2}>
                   <Button
                     fontSize={2}
                     tone="positive"
