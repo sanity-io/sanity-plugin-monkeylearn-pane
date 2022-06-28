@@ -5,7 +5,7 @@ import {
   ThemeProvider,
   studioTheme,
   Grid,
-  Inline,
+  Box,
   Button,
   Card,
   Text,
