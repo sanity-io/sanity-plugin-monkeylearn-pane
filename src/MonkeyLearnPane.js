@@ -68,7 +68,7 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
                       })
                     }
                   >
-                    <Flex space={2} align="center">
+                    <Flex gap={2} align="center">
                       {activeExtractors[ex.id] ? <FiX /> : <FiExternalLink />}
                       <Text size={2}>{activeExtractors[ex.id] ? `Close` : `Extract`}</Text>
                     </Flex>
