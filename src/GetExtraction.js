@@ -4,7 +4,7 @@ import {Card, Text, Stack, Spinner} from '@sanity/ui'
 
 import ExampleReport from './ExampleReport'
 
-export default function GetExtraction({displayComponent, docId, ml, modelId, data}) {
+export default function GetExtraction({displayComponent, docId, docType, ml, modelId, data}) {
   const [reports, setReports] = useState([])
   const [empty, setEmpty] = useState(false)
 
@@ -36,6 +36,7 @@ export default function GetExtraction({displayComponent, docId, ml, modelId, dat
               key: report.parsed_value,
               report,
               docId,
+              docType
             })
           )}
         </Stack>
