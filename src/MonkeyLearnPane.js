@@ -26,7 +26,7 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
   const {displayed} = sanityDocument
   const {_id, _type} = displayed
   const text = delve(displayed, field)
-  const docId = _id
+  const docId = _id.replace(`drafts.`, ``)
   const docType = _type
 
   // eslint-disable-next-line camelcase
