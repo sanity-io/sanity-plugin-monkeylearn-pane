@@ -11,6 +11,7 @@ import {
   Text,
   Label,
   Stack,
+  Flex,
 } from '@sanity/ui'
 import delve from 'dlv'
 import {FiExternalLink, FiX} from 'react-icons/fi'
@@ -23,9 +24,10 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
   const ml = useMemo(() => new MonkeyLearn(mlApiKey), [])
 
   const {displayed} = sanityDocument
-  const {_id} = displayed
+  const {_id, _type} = displayed
   const text = delve(displayed, field)
-  const docId = _id.replace(`drafts.`, ``)
+  const docId = _id
+  const docType = _type
 
   // eslint-disable-next-line camelcase
   const data = useMemo(() => [{external_id: docId, text: toPlainText(text)}], [displayed])
@@ -54,7 +56,7 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
             .filter((ex) => extractors?.length > 0 && extractors.includes(ex.id))
             .map((ex) => (
               <Card key={ex.id}>
-                <Inline space={2}>
+                <Flex align="center" space={2}>
                   <Button
                     fontSize={2}
                     tone="positive"
@@ -66,20 +68,23 @@ function MonkeyLearnPane({document: sanityDocument, options, mlApiKey}) {
                       })
                     }
                   >
-                    <Inline space={2} align="center">
+                    <Flex space={2} align="center">
                       {activeExtractors[ex.id] ? <FiX /> : <FiExternalLink />}
                       <Text size={2}>{activeExtractors[ex.id] ? `Close` : `Extract`}</Text>
-                    </Inline>
+                    </Flex>
                   </Button>
-                  <Stack space={2}>
-                    <Label>{ex.name.replace(`Extractor`, ``)}</Label>
-                    <Text size={1}>{ex.description}</Text>
-                  </Stack>
-                </Inline>
+                  <Box flex={1}>
+                    <Stack space={2}>
+                      <Label>{ex.name.replace(`Extractor`, ``)}</Label>
+                      <Text size={1}>{ex.description}</Text>
+                    </Stack>
+                  </Box>
+                </Flex>
                 {activeExtractors[ex.id] && (
                   <GetExtraction
                     displayComponent={displayComponent}
                     docId={docId}
+                    docType={docType}
                     ml={ml}
                     data={data}
                     modelId={ex.id}
